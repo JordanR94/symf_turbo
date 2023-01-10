@@ -11,6 +11,15 @@ import './styles/app.css';
 // start the Stimulus application
 import './bootstrap';
 
+import { Modal } from 'bootstrap';
+
+document.addEventListener('turbo:before-cache', (event) => {
+    if (document.body.classList.contains('modal-open')){
+        const modal = Modal.getInstance(document.querySelector('.modal'));
+        modal.hide();
+    }
+})
+
 import $ from 'jquery';
 
 //logs only once as this app.js script is loaded for each page
