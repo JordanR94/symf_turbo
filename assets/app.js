@@ -10,3 +10,13 @@ import './styles/app.css';
 
 // start the Stimulus application
 import './bootstrap';
+
+import $ from 'jquery';
+
+//logs only once as this app.js script is loaded for each page
+//turbo takes note of this and wont load for every new page
+$(document).ready(() => {
+    console.log("page is ready");
+})
+
+console.log("Script is done");
