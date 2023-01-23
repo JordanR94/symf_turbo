@@ -6,6 +6,10 @@ const TurboHelper = class {
             this.closeModal();
             this.closeSweetalert();
         });
+
+        document.addEventListener('turbo:render', () => {
+            this.initializeWeatherWidget();
+        });
     }
 
     closeModal(){
@@ -30,6 +34,9 @@ const TurboHelper = class {
                 }
             });
         }
+    }
+    initializeWeatherWidget() {
+        __weatherwidget_init();
     }
 }
 
