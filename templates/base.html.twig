@@ -94,5 +94,13 @@
             }(document, 'script', 'weatherwidget-io-js');
         </script>
 
+        <script>
+            document.getElementById('logo-img').addEventListener('click', (event) => {
+                event.preventDefault();
+                
+                Turbo.visit('/cart');
+            })
+        </script>
+
     </body>
 </html>
