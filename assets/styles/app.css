@@ -6,10 +6,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-/*
+/*when snapshot preview occurs - change body opacity */
 [data-turbo-preview] body {
     opacity: .2;
-}*/
+}
 
 a, a:hover  {
     color: #000;
