@@ -1,6 +1,7 @@
 import { Modal } from 'bootstrap';
 
 const TurboHelper = class {
+    //constructor creates and initialises the object instance of the class
     constructor() {
         document.addEventListener('turbo:before-cache', (event) => {
             this.closeModal();
