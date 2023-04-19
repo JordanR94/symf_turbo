@@ -16,7 +16,7 @@ const TurboHelper = class {
             document.body.classList.add('turbo-loading');
         });
 
-        this.initializeTransistions();
+        this.initializeTransitions();
     }
 
     closeModal(){
@@ -50,7 +50,7 @@ const TurboHelper = class {
         return document.documentElement.hasAttribute('data-turbo-preview');
     }
 
-    initializeTransistions(){
+    initializeTransitions(){
         document.addEventListener('turbo:before-render', (event) => {
             if (this.isPreviewRendered()) {
                 // this is a preview that has been instantly swapped
