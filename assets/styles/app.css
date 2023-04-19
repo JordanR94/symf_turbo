@@ -4,11 +4,11 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    transition: opacity 1000ms;
+    transition: opacity 200ms;
 }
 
 body.turbo-loading{
-    opacity: .2;
+    opacity: .8;
 }
 
 /*
