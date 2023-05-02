@@ -7,9 +7,9 @@ body {
     transition: opacity 200ms;
 }
 
-body.turbo-loading{
-    opacity: .8;
-}
+/*body.turbo-loading{*/
+/*    opacity: .8;*/
+/*}*/
 
 /*
 [data-turbo-preview] body {
