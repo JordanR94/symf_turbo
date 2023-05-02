@@ -135,7 +135,7 @@ function preload(link) {
     const url = link.getAttribute("href")
     const loc = new URL(url, location.protocol + "//" + location.host)
     const absoluteUrl = loc.toString()
-        
+
     if (link.dataset.prefetchWithLink == "true") {
         const prefetcher = document.createElement('link')
         prefetcher.rel = 'prefetch'
