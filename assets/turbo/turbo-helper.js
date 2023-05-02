@@ -7,9 +7,7 @@ const TurboHelper = class {
             this.closeSweetalert();
         });
 
-        document.addEventListener('turbo:render', () => {
-            this.initializeWeatherWidget();
-        });
+
 
         document.addEventListener('turbo:visit', () => {
             //fade out the old body
@@ -41,9 +39,6 @@ const TurboHelper = class {
                 }
             });
         }
-    }
-    initializeWeatherWidget() {
-        __weatherwidget_init();
     }
 
     isPreviewRendered() {
