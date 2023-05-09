@@ -15,6 +15,21 @@ body {
 [data-turbo-preview] body {
     opacity: .2;
 }*/
+turbo-frame{
+    display: block;
+}
+
+turbo-frame[busy]{
+    opacity: .2;
+}
+
+turbo-frame[busy] .frame-loading-hide, turbo-frame .frame-loading-show{
+    display: none;
+}
+
+turbo-frame[busy] .frame-loading-show{
+    display: inline-block;
+}
 
 a, a:hover  {
     color: #000;

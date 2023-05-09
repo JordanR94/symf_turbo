@@ -22,9 +22,11 @@
 
                 <a
                     data-turbo-frame="cart-sidebar"
+                    class="frame-loading-hide"
                     href="{{ path('_app_cart_product_featured', {
                         description: true
                 }) }}">(read more)</a>
+                <span class="frame-loading-show fas fa-spinner fa-spin"></span>
             {% endif %}
 
             {{ include('product/_cart_add_controls.html.twig') }}
