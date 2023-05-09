@@ -1,17 +1,23 @@
 import { Modal } from 'bootstrap';
+import button from "bootstrap/js/src/button";
 
 const TurboHelper = class {
     constructor() {
         document.addEventListener('turbo:before-cache', (event) => {
             this.closeModal();
             this.closeSweetalert();
+            this.reenableSubmitButtons();
         });
-
-
 
         document.addEventListener('turbo:visit', () => {
             //fade out the old body
             document.body.classList.add('turbo-loading');
+        });
+
+        document.addEventListener('turbo:submit-start', (event) => {
+            const submitter = event.detail.formSubmission.submitter;
+            submitter.toggleAttribute('disabled', true);
+            submitter.classList.add('turbo-submit-disabled');
         });
 
         this.initializeTransitions();
@@ -75,6 +81,13 @@ const TurboHelper = class {
             requestAnimationFrame(() => {
                 document.body.classList.remove('turbo-loading');
             });
+        });
+    }
+
+    reenableSubmitButtons(){
+        document.querySelectorAll('.turbo-submit-disabled').forEach((button) => {
+            button.toggleAttribute('disabled', false);
+            button.classList.remove('turbo-submit-disabled');
         });
     }
 }
