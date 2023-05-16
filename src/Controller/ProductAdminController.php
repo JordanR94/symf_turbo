@@ -49,9 +49,7 @@ class ProductAdminController extends AbstractController
                 return new Response(null, 204);
             }
 
-            return $this->redirectToRoute('app_product_reviews', [
-                'id' => $product->getId(),
-            ]);
+            return $this->redirectToRoute('product_admin_index');
         }
 
         $template = $request->isXmlHttpRequest() ? '_form.html.twig' : 'new.html.twig';
