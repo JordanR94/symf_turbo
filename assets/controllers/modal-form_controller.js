@@ -6,9 +6,16 @@ export default class extends Controller {
     modal = null;
 
     connect() {
-        this.element.addEventListener('turbo:submit-end', (event) => {
+        document.addEventListener('turbo:before-fetch-response', (event) => {
             console.log(event);
-            if(event.detail.success){
+            if(!this.modal || !this.modal._isShown){
+                return;
+            }
+
+            const fetchResponse = event.detail.fetchResponse;
+
+            if(fetchResponse.succeeded && fetchResponse.redirected){
+                event.preventDefault();
                 this.modal.hide();
             }
         });

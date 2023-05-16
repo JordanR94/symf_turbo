@@ -49,7 +49,9 @@ class ProductAdminController extends AbstractController
                 return new Response(null, 204);
             }
 
-            return $this->redirectToRoute('product_admin_index');
+            return $this->redirectToRoute('app_product_reviews', [
+                'id' => $product->getId(),
+            ]);
         }
 
         $template = $request->isXmlHttpRequest() ? '_form.html.twig' : 'new.html.twig';
@@ -81,7 +83,6 @@ class ProductAdminController extends AbstractController
             ]);
         }
 
-        //ignored video 31***
         return $this->render('product_admin/edit.html.twig', [
             'product' => $product,
             'form' => $form->createView(),
