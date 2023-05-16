@@ -80,6 +80,7 @@ class ProductAdminController extends AbstractController
             ]);
         }
 
+        //ignored video 31***
         return $this->render('product_admin/edit.html.twig', [
             'product' => $product,
             'form' => $form->createView(),
