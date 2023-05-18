@@ -21,6 +21,10 @@ const TurboHelper = class {
             submitter.classList.add('turbo-submit-disabled');
         });
 
+        document.addEventListener('turbo:before-fetch-request', (event) => {
+            this.beforeFetchRequest(event);
+        })
+
         document.addEventListener('turbo:before-fetch-response', (event) => {
             this.beforeFetchResponse(event);
         })
@@ -96,6 +100,22 @@ const TurboHelper = class {
         });
     }
 
+    beforeFetchRequest(event){
+        console.log(event);
+        const frameId = event.detail.fetchOptions.headers['Turbo-Frame'];
+        if(!frameId){
+            return;
+        }
+
+        const frame = document.querySelector(`#${frameId}`);
+
+        if(!frame || !frame.dataset.turboFormRedirect){
+            return;
+        }
+
+        event.detail.fetchOptions.headers['Turbo-frame-redirect'] = 1;
+    }
+
     beforeFetchResponse(event){
         const fetchResponse = event.detail.fetchResponse;
 
@@ -107,7 +127,7 @@ const TurboHelper = class {
             return;
         }
 
-        
+
         event.preventDefault();
         Turbo.clearCache();
         Turbo.visit(fetchResponse.location);
