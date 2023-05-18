@@ -118,19 +118,14 @@ const TurboHelper = class {
 
     beforeFetchResponse(event){
         const fetchResponse = event.detail.fetchResponse;
-
-        if(!fetchResponse.succeeded || !fetchResponse.redirected){
+        const redirectLocation = fetchResponse.response.headers.get('Turbo-Location');
+        if(!redirectLocation){
             return;
         }
-
-        if(!this.getCurrentFrame() || !this.getCurrentFrame().dataset.turboFormRedirect){
-            return;
-        }
-
 
         event.preventDefault();
         Turbo.clearCache();
-        Turbo.visit(fetchResponse.location);
+        Turbo.visit(redirectLocation);
     }
 
     getCurrentFrame(){
