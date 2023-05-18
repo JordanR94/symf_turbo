@@ -1,5 +1,6 @@
 import { Modal } from 'bootstrap';
 import button from "bootstrap/js/src/button";
+import * as Turbo from "@hotwired/turbo";
 
 const TurboHelper = class {
     constructor() {
@@ -19,6 +20,10 @@ const TurboHelper = class {
             submitter.toggleAttribute('disabled', true);
             submitter.classList.add('turbo-submit-disabled');
         });
+
+        document.addEventListener('turbo:before-fetch-response', (event) => {
+            this.beforeFetchResponse(event);
+        })
 
         this.initializeTransitions();
     }
@@ -89,6 +94,25 @@ const TurboHelper = class {
             button.toggleAttribute('disabled', false);
             button.classList.remove('turbo-submit-disabled');
         });
+    }
+
+    beforeFetchResponse(event){
+        const fetchResponse = event.detail.fetchResponse;
+
+        if(!fetchResponse.succeeded || !fetchResponse.redirected){
+            return;
+        }
+
+        if(!this.getCurrentFrame() || !this.getCurrentFrame().dataset.turboFormRedirect){
+            return;
+        }
+
+        event.preventDefault();
+        Turbo.visit(fetchResponse.location);
+    }
+
+    getCurrentFrame(){
+        return document.querySelector('turbo-frame[busy]');
     }
 }
 
