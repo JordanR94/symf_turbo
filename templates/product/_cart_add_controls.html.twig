@@ -1,3 +1,7 @@
+<turbo-frame
+        id="add-to-cart-controls"
+        data-turbo-frame-redirect="true"
+>
 {{ form_start(addToCartForm, {
     attr: { class: 'cart-add-controls d-flex align-items-center justify-content-baseline' }
 }) }}
@@ -40,3 +44,4 @@
     {% endif %}
     {{ form_errors(addToCartForm.quantity) }}
 </div>
+</turbo-frame>
