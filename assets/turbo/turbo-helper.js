@@ -107,6 +107,7 @@ const TurboHelper = class {
             return;
         }
 
+        
         event.preventDefault();
         Turbo.clearCache();
         Turbo.visit(fetchResponse.location);
