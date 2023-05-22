@@ -92,7 +92,7 @@ class ProductController extends AbstractController
                         'product' => $product,
                     ], new TurboStreamResponse());
                 }
-                
+
                 $this->addFlash('review_success', 'Thanks for your review! I like you!');
 
                 return $this->redirectToRoute('app_product_reviews', [
