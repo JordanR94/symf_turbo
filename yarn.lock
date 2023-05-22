@@ -930,6 +930,11 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.15.3.tgz#c36ffa64a2a239bf948541a97b6ae8d729e09a9a"
   integrity sha512-rFnSUN/QOtnOAgqFRooTA3H57JLDm0QEG/jPdk+tLQNL/eWd+Aok8g3qCI+Q1xuDPWpGW/i9JySpJVsq8Q0s9w==
 
+"@hotwired/stimulus@^3.0.0":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.2.1.tgz#e3de23623b0c52c247aba4cd5d530d257008676b"
+  integrity sha512-HGlzDcf9vv/EQrMJ5ZG6VWNs8Z/xMN+1o2OhV1gKiSG6CqZt5MCBB1gRg5ILiN3U0jEAxuDTNPRfBcnZBDmupQ==
+
 "@hotwired/turbo@^7.0.0-beta.5":
   version "7.3.0"
   resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.3.0.tgz#2226000fff1aabda9fd9587474565c9929dbf15d"
@@ -1011,6 +1016,9 @@
 
 "@symfony/ux-chartjs@file:vendor/symfony/ux-chartjs/Resources/assets":
   version "1.1.0"
+
+"@symfony/ux-turbo-mercure@file:vendor/symfony/ux-turbo-mercure/Resources/assets":
+  version "0.1.0"
 
 "@symfony/ux-turbo@file:vendor/symfony/ux-turbo/Resources/assets":
   version "0.1.0"
